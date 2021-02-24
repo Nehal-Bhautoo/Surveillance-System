@@ -7,15 +7,16 @@ class TabbedAppBar extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       home: DefaultTabController(
-        length: choice.length,
+        length: choices.length,
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Choose a connectivity'),
             bottom: TabBar(
               isScrollable: true,
-              tabs: choice.map<Widget>((Choice choice) {
+              tabs: choices.map<Widget>((Choice choice) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Tab(
                       text: choice.title,
@@ -27,7 +28,7 @@ class TabbedAppBar extends StatelessWidget {
             ),
           ),
           body: TabBarView(
-            children: choice.map((Choice choice) {
+            children: choices.map((Choice choice) {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ConnectionScreen(choice: choice),
@@ -47,9 +48,9 @@ class Choice {
   const Choice({this.id, this.title, this.icon});
 }
 
-const List<Choice> choice = <Choice>[
-  Choice(title: 'Bluetooth', icon: Icons.bluetooth_connected_rounded),
-  Choice(title: 'Wi-Fi', icon: Icons.wifi)
+const List<Choice> choices = <Choice>[
+  Choice(id: 1, title: 'Bluetooth', icon: Icons.bluetooth_connected_rounded),
+  Choice(id: 2, title: 'Wi-Fi', icon: Icons.wifi)
 ];
 
 class ConnectionScreen extends StatelessWidget {
@@ -57,7 +58,7 @@ class ConnectionScreen extends StatelessWidget {
   const ConnectionScreen({Key key, this.choice}) : super(key : key);
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.headline2;
     return Card(
       color: Color(0xFF242426),
       child: Center(
