@@ -61,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.add_to_photos_rounded,
+                Icons.settings,
                 color: Colors.grey,
               ),
               activeIcon: Icon(
-                Icons.add_to_photos_rounded,
+                Icons.settings,
                 color: Color(0xFF3D41EF),
               ),
               title: Container(
