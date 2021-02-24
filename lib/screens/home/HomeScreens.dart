@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFF373A49),
           currentIndex: _page,
           onTap: (index) {
             _pageController.jumpToPage(index);
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.bluetooth,
-                color: Colors.grey,
+                color: Colors.white70,
               ),
               activeIcon: Icon(
                 Icons.bluetooth,
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                color: Colors.grey,
+                color: Colors.white70,
               ),
               activeIcon: Icon(
                 Icons.settings,
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         children: <Widget>[
-          ConnectionScreen(),
+          TabbedAppBar(),
           Container(),
           Container(),
         ],

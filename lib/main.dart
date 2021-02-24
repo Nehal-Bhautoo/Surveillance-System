@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
+import 'package:flutter/services.dart';
 import 'package:surveillence_app/screens/home/HomeScreens.dart';
 
 void main() => runApp(MyApp());
 
+void initState() {
+  // Enter fullscreen
+  SystemChrome.setEnabledSystemUIOverlays([]);
+}
+
+void dispose() {
+  // Exit full screen
+  SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       title: 'Surveillance',
       debugShowCheckedModeBanner: false,
