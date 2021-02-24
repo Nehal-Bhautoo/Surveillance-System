@@ -14,9 +14,14 @@ class TabbedAppBar extends StatelessWidget {
             bottom: TabBar(
               isScrollable: true,
               tabs: choice.map<Widget>((Choice choice) {
-                return Tab(
-                  text: choice.title,
-                  icon: Icon(choice.icon),
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Tab(
+                      text: choice.title,
+                      icon: Icon(choice.icon),
+                    ),
+                  ],
                 );
               }).toList(),
             ),
@@ -36,9 +41,10 @@ class TabbedAppBar extends StatelessWidget {
 }
 
 class Choice {
+  final int id;
   final String title;
   final IconData icon;
-  const Choice({this.title, this.icon});
+  const Choice({this.id, this.title, this.icon});
 }
 
 const List<Choice> choice = <Choice>[
@@ -53,7 +59,7 @@ class ConnectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle textStyle = Theme.of(context).textTheme.display1;
     return Card(
-      color: Colors.white,
+      color: Color(0xFF242426),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

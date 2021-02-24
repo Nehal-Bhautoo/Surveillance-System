@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color(0xFF373A49),
+          backgroundColor: Color(0xFF1C1C1D),
           currentIndex: _page,
           onTap: (index) {
             _pageController.jumpToPage(index);
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               activeIcon: Icon(
                 Icons.bluetooth,
-                color: Color(0xFF3D41EF),
+                color: Color(0xFF6265FF),
               ),
               title: Container(
                 height: 0.0,
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 30.0,
                 width: 30.0,
                 buttonBackgroundColor: Color(0xFF373A49),
-                glowColor: Color(0xFF3D41EF),
+                glowColor: Color(0xFF6265FF),
                 icon: Icons.camera_alt_rounded,
                 iconColor: Colors.white,
               ),
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               activeIcon: Icon(
                 Icons.settings,
-                color: Color(0xFF3D41EF),
+                color: Color(0xFF6265FF),
               ),
               title: Container(
                 height: 0.0,
