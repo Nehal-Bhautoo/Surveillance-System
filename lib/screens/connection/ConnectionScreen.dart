@@ -29,9 +29,12 @@ class TabbedAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Tab(
-                      text: choice.title,
-                      icon: Icon(choice.icon),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 35.0),
+                      child: Tab(
+                        text: choice.title,
+                        icon: Icon(choice.icon),
+                      ),
                     ),
                   ],
                 );
