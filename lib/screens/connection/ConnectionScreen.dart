@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surveillence_app/screens/connection/BluetoothScreen.dart';
 
 class TabbedAppBar extends StatelessWidget {
   @override
@@ -6,11 +7,21 @@ class TabbedAppBar extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.dark(),
+      ).copyWith(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            onPrimary: Colors.blueAccent,
+            primary: Colors.blue,
+          )
+        ),
+      ),
       home: DefaultTabController(
         length: choices.length,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Choose a connectivity'),
+            title: const Text('Choose a connection'),
             bottom: TabBar(
               isScrollable: true,
               tabs: choices.map<Widget>((Choice choice) {
@@ -28,12 +39,10 @@ class TabbedAppBar extends StatelessWidget {
             ),
           ),
           body: TabBarView(
-            children: choices.map((Choice choice) {
-              return Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: ConnectionScreen(choice: choice),
-              );
-            }).toList(),
+            children: <Widget>[
+              BluetoothScreenLayout(),
+              Container()
+            ]
           ),
         ),
       ),
