@@ -1,16 +1,12 @@
-# surveillence_app
+# Surveillance Mobile App 🚧
+[![CodeFactor](https://www.codefactor.io/repository/github/nehal-bhautoo/surveillance-system/badge)](https://www.codefactor.io/repository/github/nehal-bhautoo/surveillance-system)
+[![GitHub issues](https://img.shields.io/github/issues/Nehal-Bhautoo/Surveillance-System)](https://github.com/Nehal-Bhautoo/Surveillance-System/issues)
+[![GitHub license](https://img.shields.io/github/license/Nehal-Bhautoo/Surveillance-System)](https://github.com/Nehal-Bhautoo/Surveillance-System/blob/Mobile-App/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/Nehal-Bhautoo/Surveillance-System)](https://github.com/Nehal-Bhautoo/Surveillance-System/network)
+[![GitHub stars](https://img.shields.io/github/stars/Nehal-Bhautoo/Surveillance-System)](https://github.com/Nehal-Bhautoo/Surveillance-System/stargazers)
 
 A new Flutter application.
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
