@@ -10,15 +10,15 @@ class BluetoothScreenLayout extends StatelessWidget {
 Widget _myListView(BuildContext context) {
   final titles = ['bike', 'boat', 'bus', 'car', 'railway', 'run', 'subway', 'transit', 'walk'];
   final colors = [
-    Colors.amberAccent,
-    Colors.blueAccent,
-    Colors.redAccent,
-    Colors.deepPurpleAccent,
-    Colors.deepOrangeAccent,
-    Colors.lightGreenAccent,
-    Colors.blueGrey,
-    Colors.pinkAccent,
-    Colors.limeAccent
+    Colors.amber,
+    Colors.cyan,
+    Colors.deepPurple,
+    Colors.deepOrange,
+    Colors.lightGreen,
+    Colors.red,
+    Colors.teal,
+    Colors.pink,
+    Colors.lime
   ];
 
   return ListView.builder(
@@ -41,7 +41,7 @@ Widget _myListView(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const ListTile(
-                leading: Icon(Icons.album, size: 70),
+                leading: Icon(Icons.devices_other_rounded, size: 70),
                 title: Text('Heart Shaker', style: TextStyle(color: Colors.white)),
                 subtitle: Text('TWICE', style: TextStyle(color: Colors.white)),
               ),
