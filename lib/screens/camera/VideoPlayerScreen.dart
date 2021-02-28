@@ -7,10 +7,12 @@ class VideoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Camera",
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: VideoScreenPage(),
     );
   }
 }
@@ -41,7 +43,7 @@ class _VideoScreenPageState extends State<VideoScreenPage> {
   void dispose() async {
     super.dispose();
     await _vlcPlayerController.stopRendererScanning();
-    //await _videoViewController.dispose();
+    await _vlcPlayerController.dispose();
   }
   @override
   Widget build(BuildContext context) {
