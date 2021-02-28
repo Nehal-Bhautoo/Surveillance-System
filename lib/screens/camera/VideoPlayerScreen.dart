@@ -48,7 +48,9 @@ class _VideoScreenPageState extends State<VideoScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Video Stream"),
+      ),
       body: Center(
         child: VlcPlayer(
           controller: _vlcPlayerController,
