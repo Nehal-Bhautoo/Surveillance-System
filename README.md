@@ -9,4 +9,6 @@ A new Flutter application.
 
 ## Description
 
+### Dependencies Used
+
 ## Screenshots
