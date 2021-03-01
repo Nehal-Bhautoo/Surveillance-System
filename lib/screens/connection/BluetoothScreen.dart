@@ -99,7 +99,7 @@ Widget _myListView(BuildContext context) {
             children: <Widget>[
               const ListTile(
                 leading: Icon(Icons.devices_other_rounded, size: 70),
-                title: Text('Heart Shaker', style: TextStyle(color: Colors.white)),
+                title: Text("titles[index]", style: TextStyle(color: Colors.white)),
                 subtitle: Text('TWICE', style: TextStyle(color: Colors.white)),
               ),
               ButtonTheme(
@@ -109,10 +109,6 @@ Widget _myListView(BuildContext context) {
                       onPressed: () {},
                       child: const Text('Connect', style: TextStyle(color: Colors.white)),
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('Delete', style: TextStyle(color: Colors.white)),
-                    )
                   ],
                 ),
               )
