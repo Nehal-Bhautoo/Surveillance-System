@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:breathing_collection/breathing_collection.dart';
 import 'package:surveillence_app/screens/camera/VideoPlayerScreen.dart';
 import 'package:surveillence_app/screens/connection/ConnectionScreen.dart';
+import 'package:surveillence_app/screens/setting/SettingScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           TabbedAppBar(),
           VideoScreen(),
-          Container(),
+          SettingScreen(),
         ],
       ),
     );
