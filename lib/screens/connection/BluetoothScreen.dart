@@ -98,9 +98,9 @@ Widget _myListView(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const ListTile(
-                leading: Icon(Icons.devices_other_rounded, size: 70),
-                title: Text("titles[index]", style: TextStyle(color: Colors.white)),
-                subtitle: Text('TWICE', style: TextStyle(color: Colors.white)),
+                leading: Icon(Icons.devices_other_rounded, size: 70, color: Colors.white70,),
+                title: Text("Device Name", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                subtitle: Text('Device ID', style: TextStyle(color: Colors.white)),
               ),
               ButtonTheme(
                 child: ButtonBar(
