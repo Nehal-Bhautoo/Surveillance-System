@@ -125,7 +125,7 @@ class FindDevicesScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5.0),
+        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 45.0),
         child: StreamBuilder<bool>(
           stream: FlutterBlue.instance.isScanning,
           initialData: false,
@@ -135,11 +135,14 @@ class FindDevicesScreen extends StatelessWidget {
                 child: Icon(Icons.stop),
                 onPressed: () => FlutterBlue.instance.stopScan(),
                 backgroundColor: Colors.red,
+                elevation: 5,
               );
             } else {
               return FloatingActionButton(
                 child: Icon(Icons.search),
-                onPressed: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 4))
+                backgroundColor: Colors.blueAccent,
+                onPressed: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)),
+                elevation: 5,
               );
             }
           },
