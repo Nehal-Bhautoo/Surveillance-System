@@ -72,10 +72,8 @@ class FindDevicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
       appBar: AppBar(
         title: Text('Find Devices'),
-        backgroundColor: Colors.black87,
       ),
       body: RefreshIndicator(
         onRefresh: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 5)),
