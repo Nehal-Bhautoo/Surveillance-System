@@ -24,3 +24,5 @@ A new Flutter application.
 [flutter_vlc_player: ^5.0.4](https://pub.dev/packages/flutter_vlc_player)
 
 ## Screenshots
+
+![Demo](screenshots/demo.gif)
