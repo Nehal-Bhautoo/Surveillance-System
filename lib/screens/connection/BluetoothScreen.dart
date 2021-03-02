@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
@@ -56,6 +58,52 @@ class BluetoothOffScreen extends StatelessWidget {
                 .subtitle1
                 .copyWith(color: Colors.white),
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FindDevicesScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Find Devices'),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 5)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              StreamBuilder<List<BluetoothDevice>>(
+                stream: Stream.periodic(Duration(seconds: 2)).asyncMap((event) => FlutterBlue.instance.connectedDevices),
+                initialData: [],
+                builder: (c, snapshot) => Column(
+                  children: snapshot.data.map((e) => ListTile(
+                    title: Text(e.name),
+                    subtitle: Text(e.id.toString()),
+                    trailing: StreamBuilder<BluetoothDeviceState>(
+                      stream: e.state,
+                      initialData: BluetoothDeviceState.disconnected,
+                      builder: (c, snapshot) {
+                        if(snapshot.data == BluetoothDeviceState.connected) {
+                          return ElevatedButton(
+                            child: Text('OPEN'),
+                            onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => DeviceScreen(device: e))),
+                          );
+                        }
+                        return Text(snapshot.data.toString());
+                      },
+                    ),
+                  )).toList(),
+                ),
+              ),
+              
             ],
           ),
         ),
