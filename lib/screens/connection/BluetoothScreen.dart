@@ -15,7 +15,7 @@ class BluetoothScreenLayout extends StatelessWidget {
         builder: (c, snapshot) {
           final state = snapshot.data;
           if(state == BluetoothState.on) {
-            return _myListView(context);
+            return FindDevicesScreen();
           } return BluetoothOffScreen(state: state);
         },
       ),
@@ -97,8 +97,7 @@ class FindDevicesScreen extends StatelessWidget {
                             MaterialPageRoute(
                               builder: (context) => DeviceScreen(device: e))),
                           );
-                        }
-                        return Text(snapshot.data.toString());
+                        } return Text(snapshot.data.toString());
                       },
                     ),
                   )).toList(),
@@ -216,38 +215,34 @@ class DeviceScreen extends StatelessWidget {
   }
 
   List<Widget> _buildServiceTiles(List<BluetoothService> services) {
-    return services
-        .map(
-          (s) => ServiceTile(
+    return services.map(
+      (s) => ServiceTile(
         service: s,
         characteristicTiles: s.characteristics
+          .map(
+            (c) => CharacteristicTile(
+          characteristic: c,
+          onReadPressed: () => c.read(),
+          onWritePressed: () async {
+            await c.write(_getRandomBytes(), withoutResponse: true);
+            await c.read();
+          },
+          onNotificationPressed: () async {
+            await c.setNotifyValue(!c.isNotifying);
+            await c.read();
+          },
+          descriptorTiles: c.descriptors
             .map(
-              (c) => CharacteristicTile(
-            characteristic: c,
-            onReadPressed: () => c.read(),
-            onWritePressed: () async {
-              await c.write(_getRandomBytes(), withoutResponse: true);
-              await c.read();
-            },
-            onNotificationPressed: () async {
-              await c.setNotifyValue(!c.isNotifying);
-              await c.read();
-            },
-            descriptorTiles: c.descriptors
-                .map(
-                  (d) => DescriptorTile(
-                descriptor: d,
-                onReadPressed: () => d.read(),
-                onWritePressed: () => d.write(_getRandomBytes()),
-              ),
-            )
-                .toList(),
+              (d) => DescriptorTile(
+              descriptor: d,
+              onReadPressed: () => d.read(),
+              onWritePressed: () => d.write(_getRandomBytes()),
+            ),
+          ).toList(),
           ),
-        )
-            .toList(),
+        ).toList(),
       ),
-    )
-        .toList();
+    ).toList();
   }
 
   @override
