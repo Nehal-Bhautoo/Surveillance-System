@@ -16,10 +16,11 @@ class ScanResultTile extends StatelessWidget {
           Text(
             result.device.name,
             overflow: TextOverflow.ellipsis,
+            style: TextStyle(color: Colors.white),
           ),
           Text(
             result.device.id.toString(),
-            style: Theme.of(context).textTheme.caption,
+            style: TextStyle(color: Colors.white70),
           )
         ],
       );
@@ -34,7 +35,7 @@ class ScanResultTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(title, style: Theme.of(context).textTheme.caption),
+          Text(title, style: TextStyle(color: Colors.white70),),
           SizedBox(
             width: 12.0,
           ),
@@ -44,7 +45,7 @@ class ScanResultTile extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .caption
-                  .apply(color: Colors.black),
+                  .apply(color: Colors.white),
               softWrap: true,
             ),
           ),
@@ -88,7 +89,7 @@ class ScanResultTile extends StatelessWidget {
       leading: Text(result.rssi.toString()),
       trailing: RaisedButton(
         child: Text('CONNECT'),
-        color: Colors.black,
+        color: Colors.blue,
         textColor: Colors.white,
         onPressed: (result.advertisementData.connectable) ? onTap : null,
       ),
@@ -133,10 +134,10 @@ class ServiceTile extends StatelessWidget {
           children: <Widget>[
             Text('Service'),
             Text('0x${service.uuid.toString().toUpperCase().substring(4, 8)}',
-                style: Theme.of(context)
-                    .textTheme
-                    .body1
-                    .copyWith(color: Theme.of(context).textTheme.caption.color))
+            style: Theme.of(context)
+              .textTheme
+              .body1
+              .copyWith(color: Theme.of(context).textTheme.caption.color))
           ],
         ),
         children: characteristicTiles,
@@ -276,7 +277,6 @@ class DescriptorTile extends StatelessWidget {
 
 class AdapterStateTile extends StatelessWidget {
   const AdapterStateTile({Key key, @required this.state}) : super(key: key);
-
   final BluetoothState state;
 
   @override

@@ -9,6 +9,7 @@ class BluetoothScreenLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
       home: StreamBuilder<BluetoothState>(
         stream: FlutterBlue.instance.state,
         initialData: BluetoothState.unknown,
@@ -71,8 +72,10 @@ class FindDevicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black87,
       appBar: AppBar(
         title: Text('Find Devices'),
+        backgroundColor: Colors.black87,
       ),
       body: RefreshIndicator(
         onRefresh: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 5)),
@@ -121,89 +124,34 @@ class FindDevicesScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: StreamBuilder<bool>(
-        stream: FlutterBlue.instance.isScanning,
-        initialData: false,
-        builder: (c, snapshot) {
-          if (snapshot.data) {
-            return FloatingActionButton(
-              child: Icon(Icons.stop),
-              onPressed: () => FlutterBlue.instance.stopScan(),
-              backgroundColor: Colors.red,
-            );
-          } else {
-            return FloatingActionButton(
-              child: Icon(Icons.search),
-              onPressed: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 4))
-            );
-          }
-        },
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5.0),
+        child: StreamBuilder<bool>(
+          stream: FlutterBlue.instance.isScanning,
+          initialData: false,
+          builder: (c, snapshot) {
+            if (snapshot.data) {
+              return FloatingActionButton(
+                child: Icon(Icons.stop),
+                onPressed: () => FlutterBlue.instance.stopScan(),
+                backgroundColor: Colors.red,
+              );
+            } else {
+              return FloatingActionButton(
+                child: Icon(Icons.search),
+                onPressed: () => FlutterBlue.instance.startScan(timeout: Duration(seconds: 4))
+              );
+            }
+          },
+        ),
       ),
     );
   }
 }
 
-Widget _myListView(BuildContext context) {
-  final titles = ['Nehal', 'Bhautoo', 'Middlesex'];
-  final colors = [
-    Colors.amber,
-    Colors.cyan,
-    Colors.deepPurple,
-    Colors.deepOrange,
-    Colors.lightGreen,
-    Colors.red,
-    Colors.teal,
-    Colors.pink,
-    Colors.lime
-  ];
-
-  return ListView.builder(
-    itemCount: titles.length,
-    itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.only(
-          left: 8.0,
-          top: 5.0,
-          right: 8.0,
-          bottom: 0.0
-        ),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          color: colors[index],
-          elevation: 10,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const ListTile(
-                leading: Icon(Icons.devices_other_rounded, size: 70, color: Colors.white70,),
-                title: Text("Device Name", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                subtitle: Text('Device ID', style: TextStyle(color: Colors.white)),
-              ),
-              ButtonTheme(
-                child: ButtonBar(
-                  children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('Connect', style: TextStyle(color: Colors.white)),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      );
-    },
-  );
-}
-
 class DeviceScreen extends StatelessWidget {
   const DeviceScreen({Key key, this.device}) : super(key: key);
-
   final BluetoothDevice device;
-
   List<int> _getRandomBytes() {
     final math = Random();
     return [
@@ -292,8 +240,8 @@ class DeviceScreen extends StatelessWidget {
               initialData: BluetoothDeviceState.connecting,
               builder: (c, snapshot) => ListTile(
                 leading: (snapshot.data == BluetoothDeviceState.connected)
-                    ? Icon(Icons.bluetooth_connected)
-                    : Icon(Icons.bluetooth_disabled),
+                  ? Icon(Icons.bluetooth_connected)
+                  : Icon(Icons.bluetooth_disabled),
                 title: Text(
                     'Device is ${snapshot.data.toString().split('.')[1]}.'),
                 subtitle: Text('${device.id}'),
