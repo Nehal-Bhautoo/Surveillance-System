@@ -113,13 +113,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.0"
-  fixnum:
-    dependency: transitive
-    description:
-      name: fixnum
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.10.11"
   flare_dart:
     dependency: transitive
     description:
@@ -140,26 +133,26 @@ packages:
       name: flare_loading
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   flare_splash_screen:
     dependency: "direct main"
     description:
       name: flare_splash_screen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_blue:
+  flutter_bluetooth_serial:
     dependency: "direct main"
     description:
-      name: flutter_blue
+      name: flutter_bluetooth_serial
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.3"
+    version: "0.2.2"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -176,14 +169,14 @@ packages:
       name: flutter_vlc_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.4"
+    version: "5.0.5"
   flutter_vlc_player_platform_interface:
     dependency: transitive
     description:
       name: flutter_vlc_player_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.5"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -228,7 +221,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   platform:
     dependency: transitive
     description:
@@ -242,7 +235,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "2.0.0"
   process:
     dependency: transitive
     description:
@@ -250,20 +243,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
-  protobuf:
-    dependency: transitive
-    description:
-      name: protobuf
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.3"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.24.1"
   sa_v1_migration:
     dependency: transitive
     description:
@@ -375,5 +354,5 @@ packages:
     source: hosted
     version: "2.1.2"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
+  dart: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
