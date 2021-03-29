@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
           title: Text('Connection'),
         ),
         body: SelectBondedDevicePage(
-          onCahtPage: (device1) {
+          onChatPage: (device1) {
             BluetoothDevice device = device1;
             Navigator.push(
               context,

@@ -14,30 +14,24 @@ class ChatPage extends StatefulWidget {
 class _Message {
   int whom;
   String text;
-
   _Message(this.whom, this.text);
 }
 
 class _ChatPage extends State<ChatPage> {
   static final clientID = 0;
   BluetoothConnection connection;
-
   List<_Message> messages = List<_Message>();
   String _messageBuffer = '';
-
   final TextEditingController textEditingController =
   new TextEditingController();
   final ScrollController listScrollController = new ScrollController();
-
   bool isConnecting = true;
   bool get isConnected => connection != null && connection.isConnected;
-
   bool isDisconnecting = false;
 
   @override
   void initState() {
     super.initState();
-
     BluetoothConnection.toAddress(widget.server.address).then((_connection) {
       print('Connected to the device');
       connection = _connection;
@@ -45,7 +39,6 @@ class _ChatPage extends State<ChatPage> {
         isConnecting = false;
         isDisconnecting = false;
       });
-
       connection.input.listen(_onDataReceived).onDone(() {
         // Example: Detect which side closed the connection
         // There should be `isDisconnecting` flag to show are we are (locally)
@@ -76,7 +69,6 @@ class _ChatPage extends State<ChatPage> {
       connection.dispose();
       connection = null;
     }
-
     super.dispose();
   }
 
