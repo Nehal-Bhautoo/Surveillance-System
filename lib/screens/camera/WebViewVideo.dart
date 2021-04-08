@@ -12,9 +12,10 @@ class WebViewPage extends StatefulWidget {
 class WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("WebView example"),
+        title: Text("Video Live Feed"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.refresh),
@@ -25,7 +26,11 @@ class WebViewPageState extends State<WebViewPage> {
           )
         ],
       ),
-      body: WebViewScreen(key: webViewKey),
+      body: Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height,
+        child: WebViewScreen(key: webViewKey)
+      ),
     );
   }
 }
@@ -50,7 +55,7 @@ class WebViewScreenState extends State<WebViewScreen> {
     return WebView(
       key: UniqueKey(),
       javascriptMode: JavascriptMode.unrestricted,
-      initialUrl: 'http://192.168.100.4:5000/vid',
+      initialUrl: 'http://192.168.100.4:5000/',
     );
   }
 
