@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/services.dart';
-import 'package:surveillence_app/screens/home/HomeScreens.dart';
+import 'package:surveillence_app/screens/connection/ConnectionScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,7 +47,7 @@ class _WelcomeSplashScreenState extends State<WelcomeSplashScreen> {
       onError: (error, stacktrace) {},
       height: _size,
       onSuccess: (_) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen(title: 'Home',)));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabbedAppBar()));
       },
     );
   }

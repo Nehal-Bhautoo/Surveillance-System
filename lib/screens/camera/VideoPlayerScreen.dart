@@ -31,7 +31,7 @@ class _VideoScreenPageState extends State<VideoScreenPage> {
     super.initState();
 
     _vlcPlayerController = VlcPlayerController.network(
-      'https://media.w3.org/2010/05/sintel/trailer.mp4',
+      'http://localhost:5000/vid',
       hwAcc: HwAcc.FULL,
       autoPlay: false,
       options: VlcPlayerOptions(),

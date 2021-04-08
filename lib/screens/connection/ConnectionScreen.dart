@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surveillence_app/screens/camera/WebViewVideo.dart';
 import 'package:surveillence_app/screens/connection/BluetoothScreen.dart';
 
 class TabbedAppBar extends StatelessWidget {
@@ -44,7 +45,7 @@ class TabbedAppBar extends StatelessWidget {
           body: TabBarView(
             children: <Widget>[
               BluetoothScreenLayout(),
-              Container()
+              WebViewPage()
             ]
           ),
         ),
