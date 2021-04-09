@@ -29,7 +29,10 @@ dependencies:
   breathing_collection: ^0.1.4+1
   flutter_vlc_player: ^5.0.4
   flutter_bluetooth_serial: ^0.2.2
+  connectivity: ^3.0.3
   webview_flutter: ^2.0.4
+  flutter_custom_error_page: ^0.1.2
+  flutter_webview_plugin: ^0.3.11
   cupertino_icons: ^1.0.1
 
 dev_dependencies:
