@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'package:surveillence_app/utils/led.dart';
+import 'package:surveillence_app/utils/connected.dart';
 import 'package:surveillence_app/utils/widgets.dart';
 
 class BluetoothScreenLayout extends StatelessWidget {
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Connection'),
+          title: Text('Device list'),
         ),
         body: SelectBondedDevicePage(
           onChatPage: (device1) {
@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return ChatPage(server: device);
+                  return ListPage(server: device);
                 },
               ),
             );

@@ -29,7 +29,6 @@ class _DeviceWithAvailability extends BluetoothDevice {
 
 class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
   List<_DeviceWithAvailability> devices = List<_DeviceWithAvailability>();
-  // Availability
   StreamSubscription<BluetoothDiscoveryResult> _discoveryStreamSubscription;
   bool _isDiscovering;
   _SelectBondedDevicePage();
