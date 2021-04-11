@@ -62,56 +62,33 @@ class WebViewPageState extends State<WebViewPage> with SingleTickerProviderState
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    return FutureBuilder(
-      future: Connectivity().checkConnectivity(),
-      builder: (context, future) {
-        if(future.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(" No Internet Connection"),
-            ),
-            body: Container(
-              height: double.infinity,
-              child: Center(
-                child: Icon(
-                  Icons.wifi_off_outlined,
-                  size: 200.0,
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-          );
-        } else {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(appBarTitle),
-              backgroundColor: appBarColor,
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.refresh),
-                  onPressed: () {
-                    // using currentState with question mark to ensure it's not null
-                    webViewKey.currentState?.reloadWebView();
-                  },
-                )
-              ],
-            ),
-            body: Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height,
-              child: WebViewScreen(key: webViewKey),
-            ),
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: _animateColor.value,
-              onPressed: animate,
-              child: AnimatedIcon(
-                icon: AnimatedIcons.pause_play,
-                progress: _animateIcon,
-              ),
-            ),
-          );
-        }
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(appBarTitle),
+        backgroundColor: appBarColor,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              // using currentState with question mark to ensure it's not null
+              webViewKey.currentState?.reloadWebView();
+            },
+          )
+        ],
+      ),
+      body: Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height,
+        child: WebViewScreen(key: webViewKey),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: _animateColor.value,
+        onPressed: animate,
+        child: AnimatedIcon(
+          icon: AnimatedIcons.pause_play,
+          progress: _animateIcon,
+        ),
+      ),
     );
   }
 }

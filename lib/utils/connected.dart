@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 class ListPage extends StatefulWidget {
   final BluetoothDevice server;
@@ -33,7 +35,15 @@ class _ListPageState extends State<ListPage> {
   void initState() {
     super.initState();
     BluetoothConnection.toAddress(widget.server.address).then((_connection) {
-      print('Connected to the device');
+      Fluttertoast.showToast(
+        msg: "Connected to the device",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.blueAccent,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
       connection = _connection;
       setState(() {
         isConnecting = false;

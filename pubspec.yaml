@@ -34,6 +34,7 @@ dependencies:
   flutter_custom_error_page: ^0.1.2
   flutter_webview_plugin: ^0.3.11
   cupertino_icons: ^1.0.1
+  fluttertoast: ^8.0.3
 
 dev_dependencies:
   flutter_test:
