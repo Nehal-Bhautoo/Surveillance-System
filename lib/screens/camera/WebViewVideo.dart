@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:webview_flutter/platform_interface.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -122,7 +121,7 @@ class WebViewScreenState extends State<WebViewScreen> {
       child: WebView(
         key: UniqueKey(),
         javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: 'http://192.168.100.4:5000/',
+        initialUrl: 'http://192.168.100.27:5200/',
         onWebResourceError: (WebResourceError error) {
           setState(() {
             appBarColor = Colors.red;
