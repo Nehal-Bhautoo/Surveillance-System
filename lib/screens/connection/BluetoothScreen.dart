@@ -89,7 +89,6 @@ class _BluetoothScreenLayoutState extends State<BluetoothScreenLayout> with Widg
                   }
                   future().then((_) {
                     setState(() {
-
                     });
                   });
                 }
@@ -111,7 +110,7 @@ class _BluetoothScreenLayoutState extends State<BluetoothScreenLayout> with Widg
                   device: _device,
                   enabled: true,
                   onTap: () {
-                    _startCameraConnect(context, _device);
+                    _startCameraConnect(context);
                   },
                 )).toList(),
               ),
@@ -122,9 +121,9 @@ class _BluetoothScreenLayoutState extends State<BluetoothScreenLayout> with Widg
     );
   }
 
-  void _startCameraConnect(BuildContext context, BluetoothDevice server) {
+  void _startCameraConnect(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return DetailPage(server: server);
+      return DetailPage();
     }));
   }
 }
